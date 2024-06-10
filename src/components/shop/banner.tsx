@@ -1,6 +1,7 @@
 'use client';
 import Image from 'next/image';
 import React, { useState, useEffect } from 'react';
+import FranjaNegraPage from './franjaNegra';
 export default function BannerPage() {
 	const [activeImage, setActiveImage] = useState(0);
 	const images = [
@@ -11,17 +12,16 @@ export default function BannerPage() {
 	];
 	return (
 		<div>
-			<div className="bg-black  text-white text-2xl p-2 uppercase font-bold flex justify-center">
-				<div className="flex items-center gap-4">
-					<Image src={'delivery.svg'} alt="logo" width={50} height={30} />
-					<h2>Delivery gratis todos los dias - exclusivo en web</h2>
-				</div>
-			</div>
-			<div className="relative w-full md:h-[400px] sm:h-60 h-40 overflow-hidden">
-				<img
+			<FranjaNegraPage
+				text={'Delivery gratis todos los dias - exclusivo en web'}
+			/>
+			<div className="relative w-full md:h-[400px] sm:h-60 h-40 overflow-hidden ">
+				<Image
 					src={images[activeImage]}
 					alt="Imagen del banner"
 					className="absolute top-0 left-0 w-full h-full transition-transform duration-500 ease-in-out"
+					width={1400}
+					height={77}
 				/>
 				<div className="absolute w-full  flex justify-between items-center h-full p-4">
 					<button

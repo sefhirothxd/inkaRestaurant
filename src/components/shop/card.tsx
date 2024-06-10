@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function CardPage() {
 	return (
@@ -25,9 +26,11 @@ export default function CardPage() {
 					width={165}
 					height={107}
 				/>
-				<button className="bg-[#2d5d2a] text-xs hover:bg-[#b5dd46]  transition-all hover:text-[#2d5d2a] text-[#b5dd46] font-semibold w-full rounded-lg py-[7px] px-[10px] cursor-pointer">
-					Comprar
-				</button>
+				<Link href={'producto/1'}>
+					<button className="bg-[#2d5d2a] text-xs font-fontPrincipal hover:bg-[#b5dd46]  transition-all hover:text-[#2d5d2a] text-[#b5dd46] font-semibold w-full rounded-lg py-[7px] px-[10px] cursor-pointer">
+						Comprar
+					</button>
+				</Link>
 			</div>
 		</div>
 	);

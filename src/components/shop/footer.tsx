@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 
 export default function FooterPage() {
 	return (
@@ -6,12 +7,14 @@ export default function FooterPage() {
 			<div className="max-w-[1440px] mx-auto">
 				<div className="text-white flex font-fontSecundario">
 					<div className="pt-[40px] pl-[30px] pb-[10px] pr-[10px] w-1/4">
-						<Image
-							src={'/papajhonBlanco.svg'}
-							alt="logo"
-							width={110}
-							height={50}
-						/>
+						<Link href={'/'}>
+							<Image
+								src={'/papajhonBlanco.svg'}
+								alt="logo"
+								width={110}
+								height={50}
+							/>
+						</Link>
 						<div>
 							<h3 className="text-lg font-bold mb-[15px]">
 								¿Quieres ser el primero en enterarte de nuestras promos? ¡Claro
