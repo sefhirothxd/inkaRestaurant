@@ -1,8 +1,18 @@
+'use client';
 import BannerPage from '@/components/shop/banner';
 import CardPage from '@/components/shop/card';
 import Image from 'next/image';
+import { useProductsStore } from '@/store';
+import { useEffect } from 'react';
+import CardsList from '@/components/product/CardsList';
 
 export default function Home() {
+	const { products, loading, error, fetchProducts } = useProductsStore();
+
+	useEffect(() => {
+		fetchProducts();
+	}, []);
+
 	return (
 		<div className="bg-[#F5F5F5]">
 			<BannerPage />
@@ -32,11 +42,7 @@ export default function Home() {
 						Una promocion se disfruta mejor en familia y amigos
 					</p>
 				</div>
-				<div className="w-full flex justify-between gap-5 items-center relative">
-					<CardPage />
-					<CardPage />
-					<CardPage />
-				</div>
+				<CardsList products={products} category={3} />
 				<div className="my-[64px]">
 					<Image
 						src={'/bannerPromo.webp'}
@@ -63,17 +69,7 @@ export default function Home() {
 							Revisa los diversos platillos que tenemos para ti
 						</p>
 					</div>
-					<div className="gap-x-9 gap-y-6 place-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-content-center ">
-						<CardPage />
-						<CardPage />
-						<CardPage />
-						<CardPage />
-						<CardPage />
-						<CardPage />
-						<CardPage />
-						<CardPage />
-						<CardPage />
-					</div>
+					<CardsList products={products} category={1} />
 				</div>
 				<div className=" pb-[83px]">
 					<div className="mb-7">
@@ -92,14 +88,7 @@ export default function Home() {
 							Revisa los diversos babidas que tenemos para ti
 						</p>
 					</div>
-					<div className="gap-x-9 gap-y-6 place-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-content-center  ">
-						<CardPage />
-						<CardPage />
-						<CardPage />
-						<CardPage />
-						<CardPage />
-						<CardPage />
-					</div>
+					<CardsList products={products} category={4} />
 				</div>
 			</main>
 		</div>

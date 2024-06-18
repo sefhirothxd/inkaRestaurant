@@ -71,6 +71,13 @@ body {
 	src: url('../fonts/PapaJohnsSansBeta-Heavy.woff2') format('woff2');
 }
 @font-face {
+	font-family: 'MiFuente2';
+	font-style: normal;
+	font-weight: 400;
+	font-display: swap;
+	src: url('../fonts/PapaJohnsSansBeta-Regular.woff') format('woff');
+}
+@font-face {
 	font-family: 'segunda';
 	font-style: normal;
 	font-weight: 400;
