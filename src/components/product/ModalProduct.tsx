@@ -5,7 +5,8 @@ import CardProductCantPage from '@/components/product/CardProductCant';
 
 import { useUIStore, useProductsStore } from '@/store';
 import CardListModalPage from './CardsListModal';
-import { use, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
+import ComponentStepOnePage from './ComponentStepOne';
 
 interface Product {
 	id: number;
@@ -18,11 +19,18 @@ interface Product {
 }
 
 export default function ModalProductPage() {
-	const { product, products } = useProductsStore();
+	const { product, products, addCart, cart } = useProductsStore();
 	const [productsSelected, setProductsSelected] = useState([] as Product[]);
+	const [componentNumber, setComponentNumber] = useState(0 as number);
 
 	const isStateModal = useUIStore((state) => state.isSideMenuOpen);
 	const isModalClose = useUIStore((state) => state.closeModalMenu);
+
+	const handleAddCart = () => {
+		addCart(productsSelected);
+		setProductsSelected([]);
+		isModalClose();
+	};
 
 	const handleAddProduct = (product: any) => {
 		const productExist = productsSelected.find(
@@ -69,6 +77,21 @@ export default function ModalProductPage() {
 		return setProductsSelected(newProducts);
 	};
 
+	const handleNextStep = () => {
+		if (componentNumber === 3) {
+			return;
+		}
+		setComponentNumber(componentNumber + 1);
+	};
+
+	const handleBeforeStep = () => {
+		if (componentNumber === 0) {
+			setComponentNumber(0);
+			return isModalClose();
+		}
+		setComponentNumber(componentNumber - 1);
+	};
+
 	useEffect(() => {
 		const listContainer = document.querySelector('#listContainer');
 		if (listContainer) {
@@ -92,22 +115,54 @@ export default function ModalProductPage() {
 			<div className="overflow-hidden max-w-[85%] w-full bg-white  gap-[64px] rounded-[15px] font-fontPrincipal flex justify-between  pt-[32px]  px-[24px] md:px-[48px] pb-[16px] ">
 				<div className="w-[70%]">
 					<div className="border-b-[12px] border-[#d9d9d9] w-full flex justify-between items-center ">
-						<div className="bg-[#b5dd46] rounded-full text-[#2d5d2a]  text-xl flex justify-center items-center max-w-[44px] w-full h-[44px]">
+						<div
+							className={clsx(
+								' rounded-full  text-xl flex justify-center items-center max-w-[44px] w-full h-[44px]',
+								{
+									'bg-[#2d5d2a] text-[#b5dd46]': componentNumber === 0,
+									'bg-[#d9d9d9] text-white': componentNumber !== 0,
+								}
+							)}
+						>
 							1
 						</div>
-						<div className="bg-[#d9d9d9] rounded-full text-white  text-xl flex justify-center items-center max-w-[44px] w-full h-[44px]">
+						<div
+							className={clsx(
+								' rounded-full  text-xl flex justify-center items-center max-w-[44px] w-full h-[44px]',
+								{
+									'bg-[#2d5d2a] text-[#b5dd46]': componentNumber === 1,
+									'bg-[#d9d9d9] text-white': componentNumber !== 1,
+								}
+							)}
+						>
 							2
 						</div>
-						<div className="bg-[#d9d9d9] rounded-full text-white  text-xl flex justify-center items-center max-w-[44px] w-full h-[44px]">
+						<div
+							className={clsx(
+								' rounded-full   text-xl flex justify-center items-center max-w-[44px] w-full h-[44px]',
+								{
+									'bg-[#2d5d2a] text-[#b5dd46]': componentNumber === 2,
+									'bg-[#d9d9d9] text-white': componentNumber !== 2,
+								}
+							)}
+						>
 							3
 						</div>
-						<div className="bg-[#d9d9d9] rounded-full text-white  text-xl flex justify-center items-center max-w-[44px] w-full h-[44px]">
+						<div
+							className={clsx(
+								'rounded-full  text-xl flex justify-center items-center max-w-[44px] w-full h-[44px]',
+								{
+									'bg-[#2d5d2a] text-[#b5dd46]': componentNumber === 3,
+									'bg-[#d9d9d9] text-white': componentNumber !== 3,
+								}
+							)}
+						>
 							4
 						</div>
 					</div>
 					<div className=" font-fontSecundario">
 						<button
-							onClick={() => isModalClose()}
+							onClick={() => handleBeforeStep()}
 							className="flex items-center mt-[48px] mb-[30px]"
 						>
 							<div className=" flex justify-center items-center  text-white rounded-full bg-[#FF0000] w-[24px] h-[24px] mr-2">
@@ -116,64 +171,39 @@ export default function ModalProductPage() {
 							<p className="text-[20px]">Volver</p>
 						</button>
 					</div>
-					<div className="border-t-2 border-[#d9d9d9] pt-[25px] h-[510px]  overflow-y-scroll pr-4 ">
-						<div className="flex justify-between items-center">
-							<h3 className="text-[#4c4c4c] text-[22px]">Platos adicionales</h3>
+					{componentNumber === 0 && (
+						<ComponentStepOnePage
+							products={products}
+							handleAddProduct={handleAddProduct}
+							category={1}
+							title="Platos principales"
+						/>
+					)}
 
-							{/* <p className="p-2 bg-red-500 text-white text-[12px]">
-								Obligatorio
-							</p> */}
-						</div>
-						<div className="mb-8 mt-[5px]">
-							<div className="flex gap-10 items-center mb-5">
-								<h3 className="text-[#2d5d2a] text-[16px]">
-									platillos principales
-								</h3>
-
-								<p className=" text-[#4c4c4c] text-[12px] font-fontSecundario">
-									Agrega mas platillos a tu pedido
-								</p>
-							</div>
-							<CardListModalPage
-								products={products}
-								category={1}
-								handleAddProduct={handleAddProduct}
-							/>
-						</div>
-						{/* <div className="mb-8">
-							<div className="flex gap-10 items-center mb-5">
-								<h3 className="text-[#2d5d2a] text-[16px]">Especialidad</h3>
-
-								<p className=" text-[#4c4c4c] text-[12px] font-fontSecundario">
-									Las de siempre
-								</p>
-							</div>
-							<div className="grid grid-cols-1 place-items-center sm:place-items-stretch gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-								<CardProductPage />
-								<CardProductPage />
-								<CardProductPage />
-								<CardProductPage />
-							</div>
-						</div>
-						<div className="mb-8">
-							<div className="flex gap-10 items-center mb-5">
-								<h3 className="text-[#2d5d2a] text-[16px]">Signature</h3>
-
-								<p className=" text-[#4c4c4c] text-[12px] font-fontSecundario">
-									Exclusivas de Papa Johns
-								</p>
-							</div>
-							<div className="grid grid-cols-1 place-items-center sm:place-items-stretch gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
-								<CardProductPage />
-								<CardProductPage />
-								<CardProductPage />
-								<CardProductPage />
-								<CardProductPage />
-								<CardProductPage />
-								<CardProductPage />
-							</div>
-						</div> */}
-					</div>
+					{componentNumber === 1 && (
+						<ComponentStepOnePage
+							products={products}
+							handleAddProduct={handleAddProduct}
+							category={2}
+							title="Entradas"
+						/>
+					)}
+					{componentNumber === 2 && (
+						<ComponentStepOnePage
+							products={products}
+							handleAddProduct={handleAddProduct}
+							category={4}
+							title="Bebidas"
+						/>
+					)}
+					{componentNumber === 3 && (
+						<ComponentStepOnePage
+							products={products}
+							handleAddProduct={handleAddProduct}
+							category={3}
+							title="Postres"
+						/>
+					)}
 				</div>
 				<div className="relative w-[31%] flex justify-between flex-col items-start ">
 					<button
@@ -202,9 +232,32 @@ export default function ModalProductPage() {
 						</div>
 
 						<div className="">
-							<button className="bg-[#2d5d2a] text-[#b5dd46] text-[18px] w-full rounded-[10px] py-[6px]">
-								siguiente
-							</button>
+							{componentNumber === 3 ? (
+								<button
+									disabled={productsSelected.length === 0}
+									onClick={() => handleAddCart()}
+									className={clsx(
+										'bg-[#FF0000] text-white text-[18px] w-full rounded-[10px] py-[6px] mb-5',
+										{
+											'bg-[#d9d9d9] text-white cursor-not-allowed':
+												productsSelected.length === 0,
+										}
+									)}
+								>
+									agregar al carrito $
+									{productsSelected.reduce(
+										(acc, item) => acc + item.quantity! * item.price,
+										0
+									)}
+								</button>
+							) : (
+								<button
+									onClick={() => handleNextStep()}
+									className="bg-[#2d5d2a] text-[#b5dd46] text-[18px] w-full rounded-[10px] py-[6px]"
+								>
+									siguiente
+								</button>
+							)}
 						</div>
 					</div>
 				</div>

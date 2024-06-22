@@ -34,7 +34,6 @@ export default function FooterPage() {
 						<ul>
 							<li className="flex items-center gap-2  mb-[10px]">
 								<Image
-									className=""
 									src="/chat.svg"
 									alt="icono de chat"
 									width={16}
@@ -44,7 +43,6 @@ export default function FooterPage() {
 							</li>
 							<li className="flex items-center gap-2">
 								<Image
-									className=""
 									src="/audifono.svg"
 									alt="icono de audifono"
 									width={16}
@@ -89,17 +87,10 @@ export default function FooterPage() {
 				<div className="bg-[#7D0E14] h-[60px] py-2 max-w-[1440px] mx-auto flex justify-center">
 					<div className="flex items-center gap-5 mr-4">
 						<p className="text-[13px] text-white font-bold">Síguenos en:</p>
-						<Image className="" src="/fb.svg" alt="fb" width={25} height={25} />
+						<Image src="/fb.svg" alt="fb" width={25} height={25} />
+						<Image src="/youtube.svg" alt="youtube" width={25} height={25} />
+						<Image src="/x.svg" alt="x" width={25} height={25} />
 						<Image
-							className=""
-							src="/youtube.svg"
-							alt="youtube"
-							width={25}
-							height={25}
-						/>
-						<Image className="" src="/x.svg" alt="x" width={25} height={25} />
-						<Image
-							className=""
 							src="/instagram.svg"
 							alt="instagram"
 							width={25}
@@ -132,11 +123,11 @@ export default function FooterPage() {
 					</div>
 					<div className="flex items-center gap-2">
 						<Image
-							className=""
 							src="/candado.svg"
 							alt="american express"
 							width={16}
 							height={23}
+							className="w-[16px] h-[23px]"
 						/>
 						<p className="text-[13px] text-white">Tienda 100% segura</p>
 					</div>

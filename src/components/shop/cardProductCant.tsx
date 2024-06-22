@@ -5,7 +5,7 @@ export default function CardProductCartCantPage({ product }: any) {
 		<div className="bg-white p-5 rounded-[10px] flex items-center  w-full max-w-[930px] shadow-lg">
 			<Image
 				className="rounded-[10px] max-h-[200px] max-w-[250px] w-full object-cover mr-[60px] "
-				src={`/imgs/${product.image}.webp`}
+				src={`/imgs/${product?.image}.webp`}
 				alt="icono de carrito"
 				width={250}
 				height={200}

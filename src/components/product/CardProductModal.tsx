@@ -9,7 +9,7 @@ export default function CardProducModaltPage({
 	const [productsSelected, setProductsSelected] = useState(false);
 
 	const selectProduct = (product: any) => {
-		console.log(product);
+		// console.log(product);
 		setProductsSelected(!productsSelected);
 		let newProduct = { ...product };
 
@@ -25,13 +25,7 @@ export default function CardProducModaltPage({
 	return (
 		<div
 			onClick={() => selectProduct(product)}
-			className={clsx(
-				`py-[10px] border-[#e5e5e5]  border-[2px] w-[135px] gap-y-4 rounded-[15px] justify-between flex flex-col items-center`,
-				{
-					'border-[#b5dd46]': productsSelected,
-					'border-[#e5e5e5]': !productsSelected,
-				}
-			)}
+			className={`py-[10px] border-[#e5e5e5] border-[2px] w-[135px] gap-y-4 rounded-[15px] justify-between flex flex-col items-center`}
 		>
 			<Image
 				className="w-[90px] h-[90px] object-cover rounded-[10px]"

@@ -9,9 +9,9 @@ import CardsList from '@/components/product/CardsList';
 export default function Home() {
 	const { products, loading, error, fetchProducts } = useProductsStore();
 
-	useEffect(() => {
-		fetchProducts();
-	}, []);
+	// useEffect(() => {
+	// 	fetchProducts();
+	// }, []);
 
 	return (
 		<div className="bg-[#F5F5F5]">

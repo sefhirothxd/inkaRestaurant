@@ -9,15 +9,11 @@ import ModalProductPage from '@/components/product/ModalProduct';
 
 export default function DescriptionPage() {
 	const isModalOpen = useUIStore((state) => state.openModalMenu);
-	const { loading, error, product, fetchProduct, fetchProducts } =
-		useProductsStore();
+	const { products } = useProductsStore();
 
 	const { id } = useParams();
 
-	useEffect(() => {
-		fetchProduct(id);
-		fetchProducts();
-	}, []);
+	const product = products.find((product) => product.id === +id);
 
 	return (
 		<div className=" relative">
@@ -25,11 +21,7 @@ export default function DescriptionPage() {
 			<div className="py-8 px-24 font-fontSecundario">
 				<div className="px-[72px] flex justify-between gap-9 max-w-[1050px] w-full mx-auto rounded-[10px] bg-white">
 					<Image
-						src={
-							!loading
-								? `/imgs/${product?.image}.webp`
-								: '/imgs/starman_750x750.png'
-						}
+						src={`/imgs/${product?.image}.webp`}
 						alt="logo"
 						width={430}
 						height={480}
