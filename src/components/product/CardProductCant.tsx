@@ -2,9 +2,9 @@ import Image from 'next/image';
 
 export default function CardProductCantPage({
 	product,
-	deleteProduct,
-	handleAddProduct,
-	deleteByProduct,
+	removeCart,
+	plusQuantity,
+	minusQuantity,
 }: any) {
 	return (
 		<div className="bg-white p-5 rounded-[10px] flex items-center  w-full  shadow-lg mb-4 gap-4">
@@ -23,7 +23,7 @@ export default function CardProductCantPage({
 						width={16}
 						height={19}
 					/>
-					<button onClick={() => deleteByProduct(product)} className="text-sm">
+					<button onClick={() => removeCart(product.id)} className="text-sm">
 						Eliminar
 					</button>
 				</div>
@@ -41,14 +41,14 @@ export default function CardProductCantPage({
 					</p>
 					<div className="flex items-center gap-4">
 						<button
-							onClick={() => deleteProduct(product)}
+							onClick={() => minusQuantity(product.id)}
 							className="bg-[#d9d9d9] text-secondary text-xl px-2 rounded"
 						>
 							-
 						</button>
 						<div className=" text-secondary text-xl "> {product?.quantity}</div>
 						<button
-							onClick={() => handleAddProduct(product)}
+							onClick={() => plusQuantity(product.id)}
 							className="bg-[#d9d9d9] text-secondary text-xl px-2 rounded"
 						>
 							+

@@ -4,17 +4,17 @@ import WhatsappIcon from './icon/whatsAppBtn';
 import PhoneIcon from './icon/phone';
 import Image from 'next/image';
 import Link from 'next/link';
-import { useProductsStore } from '@/store';
+import { useCartStore } from '@/store';
 import clsx from 'clsx';
 
 export default function HeaderPage() {
-	const { cart } = useProductsStore();
+	const { cart } = useCartStore();
 
 	return (
 		<div className="bg-white w-full">
 			<div className="max-w-[1400px] mx-auto  p-2 h-[70px] flex justify-between items-center ">
 				<Link href={'/'}>
-					<Image src={'/papajhon.svg'} alt="logo" width={110} height={50} />
+					<Image src={'/inkaflavors.svg'} alt="logo" width={110} height={50} />
 				</Link>
 				<div className="flex items-center gap-2 ">
 					<a href="https://wa.me/51956769838">

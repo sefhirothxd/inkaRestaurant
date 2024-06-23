@@ -54,7 +54,7 @@ export default function DescriptionPage() {
 							</p>
 						</div>
 						<div className="bg-[#DA2308] text-[14px] text-white flex justify-center items-center flex-col w-[165px] h-[90px] text-center rounded-[15px] cursor-pointer">
-							<h4>Combo Mejor Pide Papa Johns</h4>
+							<h4>Combo Mejor Pide inka flavors</h4>
 							<div>
 								<p className="line-through">$ 36.80</p>
 								<p>$ 29.90</p>
@@ -65,7 +65,7 @@ export default function DescriptionPage() {
 								onClick={isModalOpen}
 								className="bg-[#00795b] text-white text-[18px] h-[40px] max-w-[220px] w-full rounded-[15px]"
 							>
-								Siguiente
+								Agregar
 							</button>
 						</div>
 					</div>

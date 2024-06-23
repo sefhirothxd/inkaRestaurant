@@ -1,16 +1,11 @@
 import Image from 'next/image';
 import clsx from 'clsx';
-import { useState } from 'react';
+import { useCartStore } from '@/store';
 
-export default function CardProducModaltPage({
-	product,
-	handleAddProduct,
-}: any) {
-	const [productsSelected, setProductsSelected] = useState(false);
+export default function CardProducModaltPage({ product }: any) {
+	const { addCart, cart } = useCartStore();
 
 	const selectProduct = (product: any) => {
-		// console.log(product);
-		setProductsSelected(!productsSelected);
 		let newProduct = { ...product };
 
 		if (newProduct.quantity) {
@@ -18,8 +13,7 @@ export default function CardProducModaltPage({
 		} else {
 			newProduct = { ...product, quantity: 1 };
 		}
-
-		handleAddProduct(newProduct);
+		addCart(newProduct);
 	};
 
 	return (

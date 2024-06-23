@@ -2,8 +2,8 @@
 import clsx from 'clsx';
 import Image from 'next/image';
 import CardProductCantPage from '@/components/product/CardProductCant';
-
-import { useUIStore, useProductsStore } from '@/store';
+import { useRouter } from 'next/navigation';
+import { useUIStore, useProductsStore, useCartStore } from '@/store';
 import CardListModalPage from './CardsListModal';
 import { useEffect, useState } from 'react';
 import ComponentStepOnePage from './ComponentStepOne';
@@ -19,62 +19,17 @@ interface Product {
 }
 
 export default function ModalProductPage() {
-	const { product, products, addCart, cart } = useProductsStore();
-	const [productsSelected, setProductsSelected] = useState([] as Product[]);
+	const { product, products } = useProductsStore();
+	const { cart, minusQuantity, plusQuantity, removeCart } = useCartStore();
 	const [componentNumber, setComponentNumber] = useState(0 as number);
-
 	const isStateModal = useUIStore((state) => state.isSideMenuOpen);
 	const isModalClose = useUIStore((state) => state.closeModalMenu);
 
+	const router = useRouter();
+
 	const handleAddCart = () => {
-		addCart(productsSelected);
-		setProductsSelected([]);
 		isModalClose();
-	};
-
-	const handleAddProduct = (product: any) => {
-		const productExist = productsSelected.find(
-			(item) => item.id === product.id
-		);
-
-		if (productExist) {
-			const newProducts = productsSelected.map((item) =>
-				item.id === product.id
-					? { ...item, quantity: item.quantity! + 1 }
-					: item
-			);
-			return setProductsSelected(newProducts);
-		}
-
-		setProductsSelected([...productsSelected, product]);
-	};
-
-	const deleteProduct = (product: any) => {
-		const productExist = productsSelected.find(
-			(item) => item.id === product.id
-		);
-
-		if (productExist && productExist.quantity! > 1) {
-			const newProducts = productsSelected.map((item) =>
-				item.id === product.id
-					? { ...item, quantity: item.quantity! - 1 }
-					: item
-			);
-			return setProductsSelected(newProducts);
-		} else {
-			const newProducts = productsSelected.filter(
-				(item) => item.id !== product.id
-			);
-			return setProductsSelected(newProducts);
-		}
-		// console.log(productsSelected);
-	};
-
-	const deleteByProduct = (product: any) => {
-		const newProducts = productsSelected.filter(
-			(item) => item.id !== product.id
-		);
-		return setProductsSelected(newProducts);
+		router.push('/carrito');
 	};
 
 	const handleNextStep = () => {
@@ -100,7 +55,7 @@ export default function ModalProductPage() {
 				behavior: 'smooth',
 			});
 		}
-	}, [productsSelected]);
+	}, []);
 
 	return (
 		<div
@@ -174,7 +129,7 @@ export default function ModalProductPage() {
 					{componentNumber === 0 && (
 						<ComponentStepOnePage
 							products={products}
-							handleAddProduct={handleAddProduct}
+							// handleAddProduct={handleAddProduct}
 							category={1}
 							title="Platos principales"
 						/>
@@ -183,7 +138,7 @@ export default function ModalProductPage() {
 					{componentNumber === 1 && (
 						<ComponentStepOnePage
 							products={products}
-							handleAddProduct={handleAddProduct}
+							// handleAddProduct={handleAddProduct}
 							category={2}
 							title="Entradas"
 						/>
@@ -191,7 +146,7 @@ export default function ModalProductPage() {
 					{componentNumber === 2 && (
 						<ComponentStepOnePage
 							products={products}
-							handleAddProduct={handleAddProduct}
+							// handleAddProduct={handleAddProduct}
 							category={4}
 							title="Bebidas"
 						/>
@@ -199,7 +154,7 @@ export default function ModalProductPage() {
 					{componentNumber === 3 && (
 						<ComponentStepOnePage
 							products={products}
-							handleAddProduct={handleAddProduct}
+							// handleAddProduct={handleAddProduct}
 							category={3}
 							title="Postres"
 						/>
@@ -220,13 +175,13 @@ export default function ModalProductPage() {
 							className="overflow-y-scroll max-h-[510px] mb-5 w-full min-h-[510px]"
 							id="listContainer"
 						>
-							{productsSelected.map((product) => (
+							{cart.map((product) => (
 								<CardProductCantPage
 									key={product.id}
 									product={product}
-									deleteProduct={deleteProduct}
-									handleAddProduct={handleAddProduct}
-									deleteByProduct={deleteByProduct}
+									minusQuantity={minusQuantity}
+									plusQuantity={plusQuantity}
+									removeCart={removeCart}
 								/>
 							))}
 						</div>
@@ -234,18 +189,18 @@ export default function ModalProductPage() {
 						<div className="">
 							{componentNumber === 3 ? (
 								<button
-									disabled={productsSelected.length === 0}
+									disabled={cart.length === 0}
 									onClick={() => handleAddCart()}
 									className={clsx(
 										'bg-[#FF0000] text-white text-[18px] w-full rounded-[10px] py-[6px] mb-5',
 										{
 											'bg-[#d9d9d9] text-white cursor-not-allowed':
-												productsSelected.length === 0,
+												cart.length === 0,
 										}
 									)}
 								>
 									agregar al carrito $
-									{productsSelected.reduce(
+									{cart.reduce(
 										(acc, item) => acc + item.quantity! * item.price,
 										0
 									)}

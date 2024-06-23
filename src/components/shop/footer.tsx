@@ -9,21 +9,21 @@ export default function FooterPage() {
 					<div className="pt-[40px] pl-[30px] pb-[10px] pr-[10px] w-1/4">
 						<Link href={'/'}>
 							<Image
-								src={'/papajhonBlanco.svg'}
+								src={'/inkaflavors.svg'}
 								alt="logo"
 								width={110}
 								height={50}
 							/>
 						</Link>
-						<div>
+						<div className="mt-4">
 							<h3 className="text-lg font-bold mb-[15px]">
 								¿Quieres ser el primero en enterarte de nuestras promos? ¡Claro
 								que las quieres!
 							</h3>
 							<p className="text-[10px] leading-[14px]">
 								Al registrarme, acepto que me manden comunicaciones
-								publicitarias de Papa Johns por correo electrónico o mensaje de
-								texto SMS
+								publicitarias de Inka flavors por correo electrónico o mensaje
+								de texto SMS
 							</p>
 						</div>
 					</div>
@@ -74,13 +74,13 @@ export default function FooterPage() {
 					</div>
 					<div className="pt-[40px] pb-[50px] pr-[50px] pl-[30px] w-1/4">
 						<p className="text-[14px] font-semibold">
-							Ofertas válidas por tiempo limitado en todos los Papa John&apos;s
-							de la cadena. Aplican restricciones por disponibilidad de insumos.
-							Los precios pueden variar. Promociones no válidas con otros
-							cupones o descuentos. Algunas ofertas pueden estar disponibles
-							únicamente en línea. Ingredientes adicionales limitados para
-							asegurar calidad de horneado. Área de entrega limitada para
-							delivery.
+							Ofertas válidas por tiempo limitado en todos los Inka
+							flavors&apos;s de la cadena. Aplican restricciones por
+							disponibilidad de insumos. Los precios pueden variar. Promociones
+							no válidas con otros cupones o descuentos. Algunas ofertas pueden
+							estar disponibles únicamente en línea. Ingredientes adicionales
+							limitados para asegurar calidad de horneado. Área de entrega
+							limitada para delivery.
 						</p>
 					</div>
 				</div>

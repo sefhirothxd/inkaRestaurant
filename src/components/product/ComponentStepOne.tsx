@@ -1,10 +1,6 @@
 import CardListModalPage from './CardsListModal';
 
-export default function ComponentStepOnePage({
-	handleAddProduct,
-	category,
-	title,
-}: any) {
+export default function ComponentStepOnePage({ category, title }: any) {
 	return (
 		<div className="border-t-2 border-[#d9d9d9] pt-[25px] h-[510px]  overflow-y-scroll pr-4 ">
 			<div className="flex justify-between items-center">
@@ -22,10 +18,7 @@ export default function ComponentStepOnePage({
 						Agrega mas platillos a tu pedido
 					</p>
 				</div>
-				<CardListModalPage
-					category={category}
-					handleAddProduct={handleAddProduct}
-				/>
+				<CardListModalPage category={category} />
 			</div>
 		</div>
 	);
