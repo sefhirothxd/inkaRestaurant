@@ -1,17 +1,17 @@
 'use client';
 import { useSearchParams } from 'next/navigation';
-import { useEffect, useState } from 'react';
+import { Suspense, useEffect, useState } from 'react';
 import Image from 'next/image';
 
-export default function CompletadoPage() {
+function ResultPayment() {
 	const [data, setData] = useState<any>([]);
 	const [items, setItems] = useState([]);
 
 	const searchParams = useSearchParams();
 	const search = searchParams.get('session_id');
-	console.log(search);
 
 	useEffect(() => {
+		localStorage.removeItem('cart');
 		const fetchData = async () => {
 			try {
 				const response = await fetch(
@@ -24,10 +24,8 @@ export default function CompletadoPage() {
 				console.log(error);
 			}
 		};
-		localStorage.removeItem('cart');
 		fetchData();
 	}, []);
-
 	return (
 		<div className="">
 			<h1 className=" text-center font-fontPrincipal text-[#00795b] text-3xl my-4">
@@ -84,10 +82,10 @@ export default function CompletadoPage() {
 								<td className="py-4 text-gray-700">{item.description}</td>
 								<td className="py-4 text-gray-700">{item.quantity}</td>
 								<td className="py-4 text-gray-700">
-									${(item.amount_total / 100).toFixed(2)}
+									${(item.amount_total / item.quantity / 100).toFixed(2)}
 								</td>
 								<td className="py-4 text-gray-700">
-									${((item.amount_total * item.quantity) / 100).toFixed(2)}
+									${(item.amount_total / 100).toFixed(2)}
 								</td>
 							</tr>
 						))}
@@ -99,7 +97,7 @@ export default function CompletadoPage() {
 						$
 						{(
 							items.reduce(
-								(acc, item: any) => acc + item.amount_total * item.quantity,
+								(acc: any, item: any) => acc + item.amount_total,
 								0
 							) / 100
 						).toFixed(2)}
@@ -107,7 +105,7 @@ export default function CompletadoPage() {
 				</div>
 				<div className="text-right mb-8">
 					{/* <div className="text-gray-700 mr-2">Tax:</div>
-					<div className="text-gray-700">$25.50</div> */}
+		<div className="text-gray-700">$25.50</div> */}
 				</div>
 				<div className="flex justify-end mb-8">
 					<div className="text-gray-700 mr-2">Total:</div>
@@ -115,7 +113,7 @@ export default function CompletadoPage() {
 						$
 						{(
 							items.reduce(
-								(acc, item: any) => acc + item.amount_total * item.quantity,
+								(acc: any, item: any) => acc + item.amount_total,
 								0
 							) / 100
 						).toFixed(2)}
@@ -123,5 +121,13 @@ export default function CompletadoPage() {
 				</div>
 			</div>
 		</div>
+	);
+}
+
+export default function CompletadoPage() {
+	return (
+		<Suspense fallback={<div>Cargando...</div>}>
+			<ResultPayment />
+		</Suspense>
 	);
 }

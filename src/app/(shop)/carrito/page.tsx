@@ -15,7 +15,7 @@ export default function CarritoPage() {
 	const paymentStripe = async () => {
 		try {
 			const response = await fetch(
-				'http://localhost:4000/api/create-checkout-session',
+				'https://backend-inkarestaurant-production.up.railway.app/api/create-checkout-session',
 				{
 					method: 'POST',
 					headers: {
