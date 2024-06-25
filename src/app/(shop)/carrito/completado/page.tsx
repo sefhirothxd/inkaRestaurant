@@ -15,7 +15,7 @@ export default function CompletadoPage() {
 		const fetchData = async () => {
 			try {
 				const response = await fetch(
-					`http://localhost:4000/api/checkout-session/${search}`
+					`https://backend-inkarestaurant-production.up.railway.app/api/checkout-session/${search}`
 				);
 				const data = await response.json();
 				setData(data[1]);
@@ -24,6 +24,7 @@ export default function CompletadoPage() {
 				console.log(error);
 			}
 		};
+		localStorage.removeItem('cart');
 		fetchData();
 	}, []);
 
