@@ -3,10 +3,35 @@ import CardProductCartCantPage from '@/components/shop/cardProductCant';
 import { useCartStore } from '@/store';
 import Image from 'next/image';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 
 export default function CarritoPage() {
 	const { cart, removeCart, addCart, minusQuantity, plusQuantity } =
 		useCartStore();
+
+	// reditection
+	const router = useRouter();
+
+	const paymentStripe = async () => {
+		try {
+			const response = await fetch(
+				'http://localhost:4000/api/create-checkout-session',
+				{
+					method: 'POST',
+					headers: {
+						'Content-Type': 'application/json',
+					},
+					body: JSON.stringify({ items: cart }),
+				}
+			);
+			const url = await response.json();
+			console.log(url);
+
+			router.push(url);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
 	return (
 		<div className="bg-[#F5F5F5] max-w-[1400px] w-full mx-auto">
@@ -80,7 +105,10 @@ export default function CarritoPage() {
 										</p>
 									</div>
 								</div>
-								<button className="bg-[#FF0000] font-semibold text-white text-[18px] w-full rounded-[10px] py-[6px] mb-5">
+								<button
+									onClick={() => paymentStripe()}
+									className="bg-[#FF0000] font-semibold text-white text-[18px] w-full rounded-[10px] py-[6px] mb-5"
+								>
 									Ir a pagar
 								</button>
 							</div>

@@ -18,6 +18,7 @@ interface ProductsState {
 	addCart: (products: any) => Promise<void>;
 	plusQuantity: (id: any) => Promise<void>;
 	minusQuantity: (id: any) => Promise<void>;
+	addCartCache: (product: Product) => Promise<void>;
 }
 const initialState = {
 	cart: [],
@@ -40,8 +41,11 @@ export const useCartStore = create<ProductsState>()((set, get) => ({
 						? { ...item, quantity: item.quantity! + 1 }
 						: item
 				);
+				//local storage
+				//delete old cart
+				localStorage.removeItem('cart');
+				localStorage.setItem('cart', JSON.stringify(newCart));
 
-				console.log(newCart);
 				set({
 					cart: newCart,
 					loading: false,
@@ -52,6 +56,9 @@ export const useCartStore = create<ProductsState>()((set, get) => ({
 
 			const data = [...get().cart, product];
 			console.log(data);
+
+			localStorage.removeItem('cart');
+			localStorage.setItem('cart', JSON.stringify(data));
 			set({
 				cart: data,
 				loading: false,
@@ -68,6 +75,8 @@ export const useCartStore = create<ProductsState>()((set, get) => ({
 	removeCart: async (id: any) => {
 		try {
 			const newCart = get().cart.filter((product) => product.id !== id);
+			localStorage.removeItem('cart');
+			localStorage.setItem('cart', JSON.stringify(newCart));
 			set({
 				cart: newCart,
 				loading: false,
@@ -88,6 +97,8 @@ export const useCartStore = create<ProductsState>()((set, get) => ({
 					? { ...product, quantity: product.quantity! + 1 }
 					: product
 			);
+			localStorage.removeItem('cart');
+			localStorage.setItem('cart', JSON.stringify(newCart));
 			set({
 				cart: newCart,
 				loading: false,
@@ -108,8 +119,25 @@ export const useCartStore = create<ProductsState>()((set, get) => ({
 					? { ...product, quantity: product.quantity! - 1 }
 					: product
 			);
+			localStorage.removeItem('cart');
+			localStorage.setItem('cart', JSON.stringify(newCart));
 			set({
 				cart: newCart,
+				loading: false,
+				error: null,
+			});
+		} catch (error) {
+			set({
+				cart: [],
+				loading: false,
+				error: error as Error, // Ensure the error is typed as Error
+			});
+		}
+	},
+	addCartCache: async (product: any) => {
+		try {
+			set({
+				cart: product,
 				loading: false,
 				error: null,
 			});

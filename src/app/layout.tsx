@@ -4,7 +4,7 @@
 import { inter } from '@/config/fonts';
 
 import './globals.css';
-import { useProductsStore } from '@/store';
+import { useProductsStore, useCartStore } from '@/store';
 import { useEffect } from 'react';
 
 // export const metadata: Metadata = {
@@ -18,11 +18,20 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	//zustand
-	const { loading, error, product, fetchProduct, fetchProducts } =
-		useProductsStore();
+	const { fetchProducts } = useProductsStore();
+	const { addCartCache } = useCartStore();
 
 	useEffect(() => {
 		fetchProducts();
+		//get locaal storage
+		const cart = localStorage.getItem('cart');
+		if (cart) {
+			const cartParse = JSON.parse(cart);
+
+			addCartCache(cartParse);
+
+			console.log('cartParse', cartParse);
+		}
 	}, []);
 
 	return (

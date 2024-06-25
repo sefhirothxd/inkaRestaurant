@@ -6,6 +6,10 @@ const nextConfig = {
 				protocol: 'https',
 				hostname: 'dsnyk1xc1sxw4.cloudfront.net',
 			},
+			{
+				protocol: 'https',
+				hostname: 'tailwindflex.com',
+			},
 		],
 	},
 };
