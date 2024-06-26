@@ -25,7 +25,7 @@ export default function CarritoPage() {
 				}
 			);
 			const url = await response.json();
-			console.log(url);
+			localStorage.removeItem('cart');
 
 			router.push(url);
 		} catch (error) {
@@ -46,7 +46,7 @@ export default function CarritoPage() {
 						</button>
 					</Link>
 				</div>
-				<div className="flex gap-4 items-start w-full h-[510px] overflow-hidden ">
+				<div className="flex gap-4 items-start w-full h-auto flex-wrap-reverse lg:flex-nowrap  lg:h-[510px] overflow-hidden ">
 					<div className="w-full max-w-[930px]">
 						<div className="flex items-center gap-2 mb-4">
 							<Image
@@ -66,54 +66,56 @@ export default function CarritoPage() {
 							plusQuantity={plusQuantity}
 						/>
 					</div>
-					{cart.length > 0 && (
-						<div className="w-full max-w-[30%]">
-							<h2 className="mb-4 text-[30px]  font-semibold text-primary font-fontPrincipal">
-								Resumen
-							</h2>
-							<div className="p-5 min-h-[240px] w-full bg-white rounded-[10px] shadow-lg font-fontPrincipal2 text-base">
-								<div className="flex flex-col gap-4  mb-4">
-									<div className="flex justify-between items-center">
-										<p>Subtotal</p>
-										<p>
-											$
-											{cart.reduce(
-												(acc: number, product: any) =>
-													acc + product.price * product.quantity!,
-												0
-											)}
-										</p>
+					<div className="w-full  lg:max-w-[30%]">
+						{cart.length > 0 && (
+							<div className="">
+								<h2 className="mb-4 text-[30px]  font-semibold text-primary font-fontPrincipal">
+									Resumen
+								</h2>
+								<div className="p-5 min-h-[240px] w-full bg-white rounded-[10px] shadow-lg font-fontPrincipal2 text-base">
+									<div className="flex flex-col gap-4  mb-4">
+										<div className="flex justify-between items-center">
+											<p>Subtotal</p>
+											<p>
+												$
+												{cart.reduce(
+													(acc: number, product: any) =>
+														acc + product.price * product.quantity!,
+													0
+												)}
+											</p>
+										</div>
+										<div className="flex justify-between items-center">
+											<p>Descuento</p>
+											<p>$ 0</p>
+										</div>
+										<div className="flex justify-between items-center">
+											<p>Delivery</p>
+											<p>$ 0</p>
+										</div>
+										<hr />
+										<div className="flex justify-between items-center">
+											<p>Total a pagar</p>
+											<p>
+												$
+												{cart.reduce(
+													(acc: number, product: any) =>
+														acc + product.price * product.quantity!,
+													0
+												)}
+											</p>
+										</div>
 									</div>
-									<div className="flex justify-between items-center">
-										<p>Descuento</p>
-										<p>$ 0</p>
-									</div>
-									<div className="flex justify-between items-center">
-										<p>Delivery</p>
-										<p>$ 0</p>
-									</div>
-									<hr />
-									<div className="flex justify-between items-center">
-										<p>Total a pagar</p>
-										<p>
-											$
-											{cart.reduce(
-												(acc: number, product: any) =>
-													acc + product.price * product.quantity!,
-												0
-											)}
-										</p>
-									</div>
+									<button
+										onClick={() => paymentStripe()}
+										className="bg-[#FF0000] font-semibold text-white text-[18px] w-full rounded-[10px] py-[6px] mb-5"
+									>
+										Ir a pagar
+									</button>
 								</div>
-								<button
-									onClick={() => paymentStripe()}
-									className="bg-[#FF0000] font-semibold text-white text-[18px] w-full rounded-[10px] py-[6px] mb-5"
-								>
-									Ir a pagar
-								</button>
 							</div>
-						</div>
-					)}
+						)}
+					</div>
 				</div>
 			</div>
 		</div>

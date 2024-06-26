@@ -9,7 +9,7 @@ export default function CardProductCantPage({
 	return (
 		<div className="bg-white p-5 rounded-[10px] flex items-center  w-full  shadow-lg mb-4 gap-4">
 			<Image
-				className="rounded-[10px] max-h-[50px] max-w-[60px] w-full object-cover mr-[1px] "
+				className="rounded-[10px] max-w-[150px] h-auto md:max-h-[50px] md:max-w-[60px] w-full object-cover mr-[1px] hidden min-[420px]:block "
 				src={`/imgs/${product.image}.webp`}
 				alt="icono de carrito"
 				width={250}
@@ -27,7 +27,7 @@ export default function CardProductCantPage({
 						Eliminar
 					</button>
 				</div>
-				<div className="w-[70%] max-w-[250px]">
+				<div className="w-full max-w-[250px]">
 					<h3 className="text-[14px] font-fontPrincipal mb-[15px] mt-2 font-semibold">
 						{product?.name}
 					</h3>
@@ -35,7 +35,7 @@ export default function CardProductCantPage({
 						{product?.description}
 					</p>
 				</div>
-				<div className="flex items-center justify-between mt-8">
+				<div className="flex items-center justify-between mt-8 flex-wrap">
 					<p className="text-[#2d5d2a] text-[22px] font-extrabold">
 						$ {product?.price * product?.quantity}
 					</p>

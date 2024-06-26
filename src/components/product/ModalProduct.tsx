@@ -60,15 +60,15 @@ export default function ModalProductPage() {
 	return (
 		<div
 			className={clsx(
-				`absolute bg-black bg-opacity-75 min-h-screen min-w-full -top-[70px] left-0 flex justify-center items-center `,
+				`absolute bg-black bg-opacity-75 min-h-full min-w-full top-0 left-0 flex justify-center items-center `,
 				{
 					hidden: !isStateModal,
 					flex: isStateModal,
 				}
 			)}
 		>
-			<div className="overflow-hidden max-w-[85%] w-full bg-white  gap-[64px] rounded-[15px] font-fontPrincipal flex justify-between  pt-[32px]  px-[24px] md:px-[48px] pb-[16px] ">
-				<div className="w-[70%]">
+			<div className="overflow-hidden lg:max-w-[85%] w-[90%] bg-white  gap-[64px] rounded-[15px] font-fontPrincipal flex-wrap-reverse md:flex-nowrap flex justify-between  pt-[32px] px-[12px]  md:px-[24px] xl:px-[48px] pb-[16px] ">
+				<div className="lg:w-[70%] md:w-[60%] w-full">
 					<div className="border-b-[12px] border-[#d9d9d9] w-full flex justify-between items-center ">
 						<div
 							className={clsx(
@@ -160,19 +160,19 @@ export default function ModalProductPage() {
 						/>
 					)}
 				</div>
-				<div className="relative w-[31%] flex justify-between flex-col items-start ">
+				<div className="relative lg:w-[31%] md:w-[40%] w-full flex justify-between flex-col items-start ">
 					<button
-						className="absolute text-[14px] font-fontPrincipal2 -top-4 -right-8 bg-[#EF4444] text-white w-8 h-8 rounded-full"
+						className="absolute text-[14px] font-fontPrincipal2 -top-4 -right-2 sm:-right-3 lg:-right-5 bg-[#EF4444] text-white w-8 h-8 rounded-full"
 						onClick={() => isModalClose()}
 					>
 						X
 					</button>
 					<div className="h-full w-full">
-						<h3 className="text-[#4c4c4c] text-[22px] mb-[16px]">
+						<h3 className="text-[#4c4c4c] md:text-[22px] text-[18px] mb-[16px]">
 							Productos seleccionados
 						</h3>
 						<div
-							className="overflow-y-scroll max-h-[510px] mb-5 w-full min-h-[510px]"
+							className="overflow-y-scroll h-[300px]  md:max-h-[510px] mb-5 w-full md:min-h-[510px]"
 							id="listContainer"
 						>
 							{cart.map((product) => (

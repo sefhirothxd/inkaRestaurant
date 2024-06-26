@@ -22,7 +22,7 @@ export default function HeaderPage() {
 							<WhatsappIcon />
 						</div>
 					</a>
-					<div className="flex items-center">
+					<div className="sm:flex items-center hidden">
 						<PhoneIcon />
 						<div className="flex flex-col text-[#00795b] font-bold text-sm">
 							<span className="">Llámanos</span>

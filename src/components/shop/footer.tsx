@@ -5,8 +5,8 @@ export default function FooterPage() {
 	return (
 		<div className="bg-[#BA151A] ">
 			<div className="max-w-[1440px] mx-auto">
-				<div className="text-white flex font-fontSecundario">
-					<div className="pt-[40px] pl-[30px] pb-[10px] pr-[10px] w-1/4">
+				<div className="text-white grid md:grid-cols-4 grid-cols-2 w-full font-fontSecundario ">
+					<div className="pt-[40px] pl-[30px] pb-[10px] pr-[10px]">
 						<Link href={'/'}>
 							<Image
 								src={'/inkaflavors.svg'}
@@ -27,7 +27,7 @@ export default function FooterPage() {
 							</p>
 						</div>
 					</div>
-					<div className="pt-[40px] pl-[20px] pr-[30px] pb-[50px] w-1/4">
+					<div className="pt-[40px] pl-[20px] pr-[30px] pb-[50px]">
 						<h3 className="text-[17px] text-white font-semibold mb-[10px]">
 							Contáctanos
 						</h3>
@@ -52,7 +52,7 @@ export default function FooterPage() {
 							</li>
 						</ul>
 					</div>
-					<div className="py-[40px] px-[20px] w-1/4">
+					<div className="py-[40px] px-[20px] hidden md:block">
 						<div className="mb-[10px]">
 							<h3 className="text-[17px] font-semibold mb-[10px]">
 								Sobre Nosotros
@@ -72,7 +72,7 @@ export default function FooterPage() {
 							</div>
 						</div>
 					</div>
-					<div className="pt-[40px] pb-[50px] pr-[50px] pl-[30px] w-1/4">
+					<div className="pt-[40px] pb-[50px] pr-[25px]  md:pr-[50px] pl-[30px] hidden md:block">
 						<p className="text-[14px] font-semibold">
 							Ofertas válidas por tiempo limitado en todos los Inka
 							flavors&apos;s de la cadena. Aplican restricciones por
@@ -97,7 +97,7 @@ export default function FooterPage() {
 							height={25}
 						/>
 					</div>
-					<div className="border border-white py-2 px-6 flex items-center gap-4 rounded-[10px] mr-12">
+					<div className="border border-white py-2 px-6  items-center gap-4 rounded-[10px] mr-12 hidden md:flex">
 						<p className="text-[13px] text-white">Medios de pago</p>
 						<Image
 							className="bg-white rounded-[5px] px-[10px] h-[25px]"
@@ -121,7 +121,7 @@ export default function FooterPage() {
 							height={25}
 						/>
 					</div>
-					<div className="flex items-center gap-2">
+					<div className="items-center gap-2 hidden md:flex">
 						<Image
 							src="/candado.svg"
 							alt="american express"

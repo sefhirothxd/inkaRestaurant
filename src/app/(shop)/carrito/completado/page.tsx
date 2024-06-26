@@ -11,7 +11,6 @@ function ResultPayment() {
 	const search = searchParams.get('session_id');
 
 	useEffect(() => {
-		localStorage.removeItem('cart');
 		const fetchData = async () => {
 			try {
 				const response = await fetch(

@@ -37,7 +37,7 @@ export default function CardListModalPage({ category }: ProductAndCategory) {
 	// };
 
 	return (
-		<div className="grid grid-cols-1 place-items-center sm:place-items-stretch gap-y-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+		<div className="grid grid-cols-2 place-items-center sm:place-items-stretch gap-y-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-4">
 			{filteredProducts.map((product: Products) => (
 				<CardProducModaltPage key={product.id} product={product} />
 			))}

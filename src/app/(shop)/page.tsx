@@ -18,10 +18,10 @@ export default function Home() {
 			<BannerPage />
 			<main className="mt-8 max-w-[1400px] mx-auto">
 				<div className="flex items-center justify-center flex-col">
-					<h2 className="text-[24px]  text-[#4c4c4c] font-fontPrincipal ">
+					<h2 className="md:text-[24px] text-xl text-center  text-[#4c4c4c] font-fontPrincipal ">
 						Los mejores platos estan en Inka Flavors
 					</h2>
-					<p className="text-lg  text-[#848484] font-fontSecundario">
+					<p className="md:text-lg text-base text-center  text-[#848484] font-fontSecundario">
 						Disfruta de los sabores inigualables de nuestros platillos hechas
 						con los mejores ingredientes.
 					</p>

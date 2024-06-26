@@ -17,7 +17,7 @@ export default function CardProductCartCantPage({
 	plusQuantity,
 }: any) {
 	return (
-		<div className="overflow-x-auto h-[400px]">
+		<div className="overflow-x-auto sm:h-[400px] h-[300px] mb-10 lg:mb-0">
 			{cart.length > 0 ? (
 				cart.map((product: Product) => (
 					<div
@@ -25,13 +25,13 @@ export default function CardProductCartCantPage({
 						className="bg-white p-5 rounded-[10px] flex items-center  w-full max-w-[930px] shadow-lg mb-2"
 					>
 						<Image
-							className="rounded-[10px] max-h-[200px] max-w-[250px] w-full object-cover mr-[60px] "
+							className="rounded-[10px] max-h-[200px] min-w-[150px] max-w-[250px] w-full object-cover  mr-[20px] lg:mr-[60px] "
 							src={`/imgs/${product?.image}.webp`}
 							alt="icono de carrito"
 							width={250}
 							height={200}
 						/>
-						<div className="border-l-2 border-r-sky-200 pl-[60px] w-full">
+						<div className="border-l-2 border-r-sky-200 pl-[20px]  lg:pl-[60px] w-full">
 							<div className="flex items-center gap-2 justify-end">
 								<Image
 									src={'/tacho.svg'}
@@ -46,7 +46,7 @@ export default function CardProductCartCantPage({
 									Eliminar
 								</button>
 							</div>
-							<div className="w-[70%] max-w-[250px]">
+							<div className="lg:w-[70%] w-full max-w-[250px]">
 								<h3 className="text-[18px] font-fontPrincipal mb-[15px] mt-2 font-semibold">
 									{product?.name}
 								</h3>
@@ -54,8 +54,8 @@ export default function CardProductCartCantPage({
 									{product?.description}
 								</p>
 							</div>
-							<div className="flex items-center justify-between mt-8">
-								<p className="text-[#2d5d2a] text-[22px] font-extrabold">
+							<div className="flex items-center justify-between mt-8 flex-wrap sm:flex-nowrap">
+								<p className="text-[#2d5d2a] text-[22px] font-extrabold mb-2 sm:mb-0">
 									$ {product?.price * product?.quantity!}
 								</p>
 								<div className="flex items-center gap-4">
