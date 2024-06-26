@@ -34,11 +34,11 @@ export default function CarritoPage() {
 	};
 
 	return (
-		<div className="bg-[#F5F5F5] max-w-[1400px] w-full mx-auto">
+		<div className="bg-[#F5F5F5] max-w-[1400px] w-full mx-auto px-2">
 			<div className="w-full">
 				<div className=" font-fontSecundario">
 					<Link href={'/'}>
-						<button className="flex items-center mt-[48px] mb-[30px]">
+						<button className="flex items-center md:mt-[48px] mb-[30px] mt-[24px]">
 							<div className=" flex justify-center items-center  text-white rounded-full bg-[#FF0000] w-[24px] h-[24px] mr-2">
 								{'<'}
 							</div>

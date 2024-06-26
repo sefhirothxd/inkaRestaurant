@@ -21,7 +21,7 @@ export default function NamePage({ products, category }: ProductAndCategory) {
 			: products.filter((product) => product.categoryId === category);
 
 	return (
-		<div className="gap-x-9 gap-y-6 place-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-content-center ">
+		<div className="gap-x-9 mx-2 gap-y-6 place-items-center grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 justify-content-center ">
 			{filteredProducts &&
 				filteredProducts.map((product: Products) => (
 					<CardPage key={product.id} product={product} />

@@ -22,7 +22,7 @@ export default function CardProductCartCantPage({
 				cart.map((product: Product) => (
 					<div
 						key={product.id}
-						className="bg-white p-5 rounded-[10px] flex items-center  w-full max-w-[930px] shadow-lg mb-2"
+						className="bg-white p-2 sm:p-5 rounded-[10px] flex items-center  w-full max-w-[930px] shadow-lg mb-2"
 					>
 						<Image
 							className="rounded-[10px] max-h-[200px] min-w-[150px] max-w-[250px] w-full object-cover  mr-[20px] lg:mr-[60px] "

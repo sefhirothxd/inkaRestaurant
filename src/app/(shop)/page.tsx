@@ -34,11 +34,11 @@ export default function Home() {
 							width={34}
 							height={23}
 						/>
-						<h2 className="text-2xl  font-semibold text-[#4c4c4c] font-fontPrincipal">
+						<h2 className="md:text-2xl text-xl  font-semibold text-[#4c4c4c] font-fontPrincipal">
 							Promociones de comida
 						</h2>
 					</div>
-					<p className="text-lg mt-[10px]  font-medium text-[#848484] font-fontSecundario">
+					<p className="md:text-lg text-base mt-[10px]  font-medium text-[#848484] font-fontSecundario">
 						Una promocion se disfruta mejor en familia y amigos
 					</p>
 				</div>
@@ -46,14 +46,14 @@ export default function Home() {
 				<div className="my-[64px]">
 					<Image
 						src={'/bannerPromo.webp'}
-						className="w-full rounded-[10px] "
+						className="w-full  min-h-[70px]  "
 						alt="icono de promocion"
 						width={1400}
 						height={180}
 					/>
 				</div>
-				<div className=" pb-[52px]">
-					<div className="mb-7">
+				<div className=" pb-[52px] ">
+					<div className="mb-7 px-2">
 						<div className="flex items-center gap-2">
 							<Image
 								src={'promociones.svg'}
@@ -61,18 +61,18 @@ export default function Home() {
 								width={34}
 								height={23}
 							/>
-							<h2 className="text-2xl  font-semibold text-[#4c4c4c] font-fontPrincipal">
+							<h2 className="md:text-2xl text-xl  font-semibold text-[#4c4c4c] font-fontPrincipal">
 								Mas platos
 							</h2>
 						</div>
-						<p className="text-lg mt-[10px]  font-medium text-[#848484] font-fontSecundario">
+						<p className="md:text-lg text-base mt-[10px]  font-medium text-[#848484] font-fontSecundario">
 							Revisa los diversos platillos que tenemos para ti
 						</p>
 					</div>
 					<CardsList products={products} category={1} />
 				</div>
 				<div className=" pb-[83px]">
-					<div className="mb-7">
+					<div className="mb-7 p-2">
 						<div className="flex items-center gap-2">
 							<Image
 								src={'promociones.svg'}
@@ -80,11 +80,11 @@ export default function Home() {
 								width={34}
 								height={23}
 							/>
-							<h2 className="text-2xl  font-semibold text-[#4c4c4c] font-fontPrincipal">
+							<h2 className="md:text-2xl text-xl  font-semibold text-[#4c4c4c] font-fontPrincipal">
 								Bebidas
 							</h2>
 						</div>
-						<p className="text-lg mt-[10px]  font-medium text-[#848484] font-fontSecundario">
+						<p className="md:text-lg text-base mt-[10px]  font-medium text-[#848484] font-fontSecundario">
 							Revisa los diversos babidas que tenemos para ti
 						</p>
 					</div>

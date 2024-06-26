@@ -5,7 +5,7 @@ export default function FooterPage() {
 	return (
 		<div className="bg-[#BA151A] ">
 			<div className="max-w-[1440px] mx-auto">
-				<div className="text-white grid md:grid-cols-4 grid-cols-2 w-full font-fontSecundario ">
+				<div className="text-white grid md:grid-cols-4 grid-cols-2 w-full font-fontSecundario mb-5 md:mb-0 ">
 					<div className="pt-[40px] pl-[30px] pb-[10px] pr-[10px]">
 						<Link href={'/'}>
 							<Image
@@ -16,7 +16,7 @@ export default function FooterPage() {
 							/>
 						</Link>
 						<div className="mt-4">
-							<h3 className="text-lg font-bold mb-[15px]">
+							<h3 className="md:text-lg text-base font-bold mb-[15px] ">
 								¿Quieres ser el primero en enterarte de nuestras promos? ¡Claro
 								que las quieres!
 							</h3>
@@ -84,53 +84,48 @@ export default function FooterPage() {
 						</p>
 					</div>
 				</div>
-				<div className="bg-[#7D0E14] h-[60px] py-2 max-w-[1440px] mx-auto flex justify-center">
-					<div className="flex items-center gap-5 mr-4">
-						<p className="text-[13px] text-white font-bold">Síguenos en:</p>
-						<Image src="/fb.svg" alt="fb" width={25} height={25} />
-						<Image src="/youtube.svg" alt="youtube" width={25} height={25} />
-						<Image src="/x.svg" alt="x" width={25} height={25} />
-						<Image
-							src="/instagram.svg"
-							alt="instagram"
-							width={25}
-							height={25}
-						/>
-					</div>
-					<div className="border border-white py-2 px-6  items-center gap-4 rounded-[10px] mr-12 hidden md:flex">
-						<p className="text-[13px] text-white">Medios de pago</p>
-						<Image
-							className="bg-white rounded-[5px] px-[10px] h-[25px]"
-							src="/visa.svg"
-							alt="visa"
-							width={45}
-							height={25}
-						/>
-						<Image
-							className="bg-white rounded-[5px] px-[10px] h-[25px]"
-							src="/masterCard.svg"
-							alt="master card"
-							width={45}
-							height={25}
-						/>
-						<Image
-							className="bg-white rounded-[5px] px-[10px] h-[25px]"
-							src="/american.svg"
-							alt="american express"
-							width={45}
-							height={25}
-						/>
-					</div>
-					<div className="items-center gap-2 hidden md:flex">
-						<Image
-							src="/candado.svg"
-							alt="american express"
-							width={16}
-							height={23}
-							className="w-[16px] h-[23px]"
-						/>
-						<p className="text-[13px] text-white">Tienda 100% segura</p>
-					</div>
+			</div>
+			<div className="bg-[#7D0E14] h-[60px] py-2 mx-auto flex justify-center">
+				<div className="flex items-center gap-5 mr-4">
+					<p className="text-[13px] text-white font-bold">Síguenos en:</p>
+					<Image src="/fb.svg" alt="fb" width={25} height={25} />
+					<Image src="/youtube.svg" alt="youtube" width={25} height={25} />
+					<Image src="/x.svg" alt="x" width={25} height={25} />
+					<Image src="/instagram.svg" alt="instagram" width={25} height={25} />
+				</div>
+				<div className="border border-white py-2 px-6  items-center gap-4 rounded-[10px] mr-12 hidden md:flex">
+					<p className="text-[13px] text-white">Medios de pago</p>
+					<Image
+						className="bg-white rounded-[5px] px-[10px] h-[25px]"
+						src="/visa.svg"
+						alt="visa"
+						width={45}
+						height={25}
+					/>
+					<Image
+						className="bg-white rounded-[5px] px-[10px] h-[25px]"
+						src="/masterCard.svg"
+						alt="master card"
+						width={45}
+						height={25}
+					/>
+					<Image
+						className="bg-white rounded-[5px] px-[10px] h-[25px]"
+						src="/american.svg"
+						alt="american express"
+						width={45}
+						height={25}
+					/>
+				</div>
+				<div className="items-center gap-2 hidden md:flex">
+					<Image
+						src="/candado.svg"
+						alt="american express"
+						width={16}
+						height={23}
+						className="w-[16px] h-[23px]"
+					/>
+					<p className="text-[13px] text-white">Tienda 100% segura</p>
 				</div>
 			</div>
 		</div>
