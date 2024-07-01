@@ -28,7 +28,7 @@ export default function CardProducModaltPage({ product }: any) {
 				width={130}
 				height={90}
 			/>
-			<p className="text-[10px]   text-[#2d5d2a] w-[90px] text-center line-clamp-2">
+			<p className="text-[10px]   text-blackPrimario w-[90px] text-center line-clamp-2">
 				{product?.name}
 			</p>
 		</div>

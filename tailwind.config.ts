@@ -21,6 +21,8 @@ const config: Config = {
 			colors: {
 				primary: '#2d5d2a',
 				secondary: '#4c4c4c',
+				redPrimario: '#D80904',
+				blackFontPrimario: '#000000',
 			},
 		},
 	},

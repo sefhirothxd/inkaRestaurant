@@ -10,7 +10,7 @@ export default function CardProductPage() {
 				width={130}
 				height={90}
 			/>
-			<p className="text-[10px]   text-[#2d5d2a] w-[90px] text-center">
+			<p className="text-[10px]   text-redPrimario w-[90px] text-center">
 				Pizza Americana Grande
 			</p>
 		</div>

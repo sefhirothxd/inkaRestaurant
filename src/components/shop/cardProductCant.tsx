@@ -55,8 +55,8 @@ export default function CardProductCartCantPage({
 								</p>
 							</div>
 							<div className="flex items-center justify-between mt-8 flex-wrap sm:flex-nowrap">
-								<p className="text-[#2d5d2a] text-[22px] font-extrabold mb-2 sm:mb-0">
-									$ {product?.price * product?.quantity!}
+								<p className="text-redPrimario text-[22px] font-extrabold mb-2 sm:mb-0">
+									$ {(product?.price * product?.quantity!).toFixed(2)}
 								</p>
 								<div className="flex items-center gap-4">
 									<button

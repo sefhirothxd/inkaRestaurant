@@ -74,7 +74,7 @@ export default function ModalProductPage() {
 							className={clsx(
 								' rounded-full  text-xl flex justify-center items-center max-w-[44px] w-full h-[44px]',
 								{
-									'bg-[#2d5d2a] text-[#b5dd46]': componentNumber === 0,
+									'bg-redPrimario text-white': componentNumber === 0,
 									'bg-[#d9d9d9] text-white': componentNumber !== 0,
 								}
 							)}
@@ -85,7 +85,7 @@ export default function ModalProductPage() {
 							className={clsx(
 								' rounded-full  text-xl flex justify-center items-center max-w-[44px] w-full h-[44px]',
 								{
-									'bg-[#2d5d2a] text-[#b5dd46]': componentNumber === 1,
+									'bg-redPrimario text-white': componentNumber === 1,
 									'bg-[#d9d9d9] text-white': componentNumber !== 1,
 								}
 							)}
@@ -96,7 +96,7 @@ export default function ModalProductPage() {
 							className={clsx(
 								' rounded-full   text-xl flex justify-center items-center max-w-[44px] w-full h-[44px]',
 								{
-									'bg-[#2d5d2a] text-[#b5dd46]': componentNumber === 2,
+									'bg-redPrimario text-white': componentNumber === 2,
 									'bg-[#d9d9d9] text-white': componentNumber !== 2,
 								}
 							)}
@@ -107,7 +107,7 @@ export default function ModalProductPage() {
 							className={clsx(
 								'rounded-full  text-xl flex justify-center items-center max-w-[44px] w-full h-[44px]',
 								{
-									'bg-[#2d5d2a] text-[#b5dd46]': componentNumber === 3,
+									'bg-redPrimario text-white': componentNumber === 3,
 									'bg-[#d9d9d9] text-white': componentNumber !== 3,
 								}
 							)}
@@ -208,7 +208,7 @@ export default function ModalProductPage() {
 							) : (
 								<button
 									onClick={() => handleNextStep()}
-									className="bg-[#2d5d2a] text-[#b5dd46] text-[18px] w-full rounded-[10px] py-[6px]"
+									className="bg-redPrimario text-white text-[18px] w-full rounded-[10px] py-[6px]"
 								>
 									siguiente
 								</button>

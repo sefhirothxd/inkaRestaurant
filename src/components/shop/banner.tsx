@@ -25,7 +25,7 @@ export default function BannerPage() {
 				/>
 				<div className="absolute w-full  flex justify-between items-center h-full p-4">
 					<button
-						className={`flex items-center justify-center w-[41px] font-bold text-lg h-[41px] rounded-full ${'bg-gray-200 text-gray-500'}`}
+						className={`flex items-center justify-center w-[41px] font-bold text-lg h-[41px] rounded-full ${'bg-redPrimario text-white '}`}
 						onClick={() =>
 							setActiveImage(
 								activeImage === 0 ? images.length - 1 : activeImage - 1
@@ -35,7 +35,7 @@ export default function BannerPage() {
 						{'<'}
 					</button>
 					<button
-						className={`flex items-center justify-center w-[41px] h-[41px] font-bold text-lg rounded-full ${'bg-gray-200 text-gray-500'}`}
+						className={`flex items-center justify-center w-[41px] h-[41px] font-bold text-lg rounded-full ${'bg-redPrimario text-white '}`}
 						onClick={() =>
 							setActiveImage(
 								activeImage === images.length - 1 ? 0 : activeImage + 1

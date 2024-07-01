@@ -1,9 +1,7 @@
 'use client';
 import BannerPage from '@/components/shop/banner';
-import CardPage from '@/components/shop/card';
 import Image from 'next/image';
 import { useProductsStore } from '@/store';
-import { useEffect } from 'react';
 import CardsList from '@/components/product/CardsList';
 
 export default function Home() {
@@ -18,10 +16,10 @@ export default function Home() {
 			<BannerPage />
 			<main className="mt-8 max-w-[1400px] mx-auto">
 				<div className="flex items-center justify-center flex-col">
-					<h2 className="md:text-[24px] text-xl text-center  text-[#4c4c4c] font-fontPrincipal ">
+					<h2 className="md:text-[24px] text-xl text-center  text-blackFontPrimario font-fontPrincipal ">
 						Los mejores platos estan en Inka Flavors
 					</h2>
-					<p className="md:text-lg text-base text-center  text-[#848484] font-fontSecundario">
+					<p className="md:text-lg text-base text-center  text-blackFontPrimario font-fontSecundario">
 						Disfruta de los sabores inigualables de nuestros platillos hechas
 						con los mejores ingredientes.
 					</p>
@@ -29,16 +27,16 @@ export default function Home() {
 				<div className=" mt-[10px] p-2 pb-[28px]">
 					<div className="flex items-center gap-2">
 						<Image
-							src={'promociones.svg'}
+							src={'iconFlecha.svg'}
 							alt="icono de promocion"
 							width={34}
 							height={23}
 						/>
-						<h2 className="md:text-2xl text-xl  font-semibold text-[#4c4c4c] font-fontPrincipal">
+						<h2 className="md:text-2xl text-xl  font-semibold text-blackFontPrimario font-fontPrincipal">
 							Promociones de comida
 						</h2>
 					</div>
-					<p className="md:text-lg text-base mt-[10px]  font-medium text-[#848484] font-fontSecundario">
+					<p className="md:text-lg text-base mt-[10px]  font-medium text-blackFontPrimario font-fontSecundario">
 						Una promocion se disfruta mejor en familia y amigos
 					</p>
 				</div>
@@ -56,16 +54,16 @@ export default function Home() {
 					<div className="mb-7 px-2">
 						<div className="flex items-center gap-2">
 							<Image
-								src={'promociones.svg'}
+								src={'iconFlecha.svg'}
 								alt="icono de promocion"
 								width={34}
 								height={23}
 							/>
-							<h2 className="md:text-2xl text-xl  font-semibold text-[#4c4c4c] font-fontPrincipal">
+							<h2 className="md:text-2xl text-xl  font-semibold text-blackFontPrimario font-fontPrincipal">
 								Mas platos
 							</h2>
 						</div>
-						<p className="md:text-lg text-base mt-[10px]  font-medium text-[#848484] font-fontSecundario">
+						<p className="md:text-lg text-base mt-[10px]  font-medium text-blackFontPrimario font-fontSecundario">
 							Revisa los diversos platillos que tenemos para ti
 						</p>
 					</div>
@@ -75,16 +73,16 @@ export default function Home() {
 					<div className="mb-7 p-2">
 						<div className="flex items-center gap-2">
 							<Image
-								src={'promociones.svg'}
+								src={'iconFlecha.svg'}
 								alt="icono de promocion"
 								width={34}
 								height={23}
 							/>
-							<h2 className="md:text-2xl text-xl  font-semibold text-[#4c4c4c] font-fontPrincipal">
+							<h2 className="md:text-2xl text-xl  font-semibold text-blackFontPrimario font-fontPrincipal">
 								Bebidas
 							</h2>
 						</div>
-						<p className="md:text-lg text-base mt-[10px]  font-medium text-[#848484] font-fontSecundario">
+						<p className="md:text-lg text-base mt-[10px]  font-medium text-blackFontPrimario font-fontSecundario">
 							Revisa los diversos babidas que tenemos para ti
 						</p>
 					</div>

@@ -36,7 +36,7 @@ export default function CardProductCantPage({
 					</p>
 				</div>
 				<div className="flex items-center justify-between mt-8 flex-wrap">
-					<p className="text-[#2d5d2a] text-[22px] font-extrabold">
+					<p className="text-redPrimario text-[22px] font-extrabold">
 						$ {product?.price * product?.quantity}
 					</p>
 					<div className="flex items-center gap-4">

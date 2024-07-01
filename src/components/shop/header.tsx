@@ -24,7 +24,7 @@ export default function HeaderPage() {
 					</a>
 					<div className="sm:flex items-center hidden">
 						<PhoneIcon />
-						<div className="flex flex-col text-[#00795b] font-bold text-sm">
+						<div className="flex flex-col text-black font-bold text-sm">
 							<span className="">Llámanos</span>
 							<span className="">016060000</span>
 						</div>
@@ -34,22 +34,18 @@ export default function HeaderPage() {
 					<Link
 						href={'/carrito'}
 						className={clsx(
-							'flex  px-4 rounded-[10px] py-2 items-center gap-2 cursor-pointer',
-							{
-								'bg-[#b5dd46] text-[#00795b]': cart.length > 0,
-								'bg-[#d9d9d9] text-white': cart.length === 0,
-							}
+							'flex  px-4 rounded-[10px] py-2 items-center gap-2 cursor-pointer bg-redPrimario text-white'
 						)}
 					>
 						<Image
-							src={'/carrito.svg'}
+							src={'/carritoBlanco.svg'}
 							alt="carrito de compra"
-							width={33}
-							height={33}
+							width={22}
+							height={21}
 						/>
 						{cart.length > 0 && (
-							<div className=" text-[#00795b]  flex justify-center items-center">
-								<p className=" text-lg font-bold">
+							<div className=" text-white  flex justify-center items-center">
+								<p className=" text-base font-bold">
 									${' '}
 									{cart.reduce(
 										(acc, item) => acc + item.quantity! * item.price,
@@ -60,7 +56,7 @@ export default function HeaderPage() {
 						)}
 					</Link>
 					{cart.length > 0 && (
-						<div className="absolute -top-2 -right-2 bg-[#FF0000] text-white rounded-full  w-[24px] h-[24px] flex justify-center items-center">
+						<div className="absolute -top-2 -right-2 bg-[#FF0000] border-[1px] border-black text-white rounded-full  w-[24px] h-[24px] flex justify-center items-center">
 							<p>{cart.length > 0 && cart.length}</p>
 						</div>
 					)}

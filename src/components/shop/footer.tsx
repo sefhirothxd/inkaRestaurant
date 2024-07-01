@@ -3,13 +3,13 @@ import Link from 'next/link';
 
 export default function FooterPage() {
 	return (
-		<div className="bg-[#BA151A] ">
+		<div className="bg-blackFontPrimario ">
 			<div className="max-w-[1440px] mx-auto">
 				<div className="text-white grid md:grid-cols-4 grid-cols-2 w-full font-fontSecundario mb-5 md:mb-0 ">
 					<div className="pt-[40px] pl-[30px] pb-[10px] pr-[10px]">
 						<Link href={'/'}>
 							<Image
-								src={'/inkaflavors.svg'}
+								src={'/inkaflavorsBlanco.svg'}
 								alt="logo"
 								width={110}
 								height={50}
@@ -85,7 +85,7 @@ export default function FooterPage() {
 					</div>
 				</div>
 			</div>
-			<div className="bg-[#7D0E14] h-[60px] py-2 mx-auto flex justify-center">
+			<div className="bg-blackFontPrimario h-[60px] py-2 mx-auto flex justify-center">
 				<div className="flex items-center gap-5 mr-4">
 					<p className="text-[13px] text-white font-bold">Síguenos en:</p>
 					<Image src="/fb.svg" alt="fb" width={25} height={25} />

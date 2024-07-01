@@ -55,7 +55,7 @@ export default function CarritoPage() {
 								width={34}
 								height={23}
 							/>
-							<h2 className="text-[30px]  font-semibold text-primary font-fontPrincipal">
+							<h2 className="text-[30px]  font-semibold text-blackFontPrimario font-fontPrincipal">
 								Carrito
 							</h2>
 						</div>
@@ -69,7 +69,7 @@ export default function CarritoPage() {
 					<div className="w-full  lg:max-w-[30%]">
 						{cart.length > 0 && (
 							<div className="">
-								<h2 className="mb-4 text-[30px]  font-semibold text-primary font-fontPrincipal">
+								<h2 className="mb-4 text-[30px]  font-semibold text-blackFontPrimario font-fontPrincipal">
 									Resumen
 								</h2>
 								<div className="p-5 min-h-[240px] w-full bg-white rounded-[10px] shadow-lg font-fontPrincipal2 text-base">
@@ -98,11 +98,13 @@ export default function CarritoPage() {
 											<p>Total a pagar</p>
 											<p>
 												$
-												{cart.reduce(
-													(acc: number, product: any) =>
-														acc + product.price * product.quantity!,
-													0
-												)}
+												{cart
+													.reduce(
+														(acc: number, product: any) =>
+															acc + product.price * product.quantity!,
+														0
+													)
+													.toFixed(2)}
 											</p>
 										</div>
 									</div>

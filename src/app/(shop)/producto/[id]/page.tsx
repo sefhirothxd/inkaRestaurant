@@ -31,7 +31,7 @@ export default function DescriptionPage() {
 
 			{!loading ? (
 				<div className=" py-4 sm:py-16 lg:px-24 px-5 font-fontSecundario">
-					<div className="lg:px-[72px] px-[20px] sm:px-[35px] flex md:justify-between justify-center gap-9 max-w-[1050px] w-full mx-auto rounded-[10px] bg-white flex-wrap-reverse md:flex-nowrap ">
+					<div className="lg:px-[64px] py-3 px-[20px] sm:px-[35px] flex md:justify-between justify-center gap-9 max-w-[1050px] w-full mx-auto rounded-[10px] bg-white flex-wrap-reverse md:flex-nowrap ">
 						<Image
 							src={`/imgs/${product?.image}.webp`}
 							alt="logo"
@@ -41,11 +41,11 @@ export default function DescriptionPage() {
 						/>
 						<div className=" flex flex-col justify-center gap-6 mt-4">
 							<div>
-								<h3 className="text-[22px] mb-[15px] font-fontPrincipal text-[#00795b]">
+								<h3 className="text-[22px] mb-[15px] font-fontPrincipal text-blackFontPrimario">
 									{product && `${product.name}:`}{' '}
 									{product && `$${product?.price.toFixed(2)}`}
 								</h3>
-								<p className="text-[17px] text-justify font-semibold leading-[25px] my-[10px]">
+								<p className="text-[17px] text-justify font-normal leading-[25px] my-[10px]">
 									{product?.description}
 									<br />
 									<br />
@@ -59,7 +59,7 @@ export default function DescriptionPage() {
 							<div className="w-full flex justify-center py-[25px]">
 								<button
 									onClick={() => halndleAddCart(product)}
-									className="bg-[#00795b] text-white text-[18px] h-[40px] max-w-[220px] w-full rounded-[15px]"
+									className="bg-redPrimario text-white text-[18px] h-[40px] max-w-[220px] w-full rounded-[15px]"
 								>
 									Agregar
 								</button>
