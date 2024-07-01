@@ -16,8 +16,14 @@ export default function HeaderPage() {
 				</Link>
 				<div className="relative font-fontPrincipal2 flex justify-center gap-3">
 					<div className="sm:flex items-center hidden">
-						<PhoneIcon />
-						<div className="flex flex-col text-black font-bold text-sm">
+						<Image
+							className="mr-2"
+							src={'/phone.svg'}
+							alt="icono de telefono"
+							width={20}
+							height={20}
+						/>
+						<div className="flex flex-col text-black font-bold text-xs">
 							<span className="">Llámanos</span>
 							<span className="">016060000</span>
 						</div>
