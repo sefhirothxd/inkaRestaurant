@@ -15,7 +15,7 @@ export default function BannerPage() {
 			<FranjaNegraPage
 				text={'Delivery gratis todos los dias - exclusivo en web'}
 			/>
-			<div className="relative w-full md:h-[400px] sm:h-60 h-40 overflow-hidden max-w-[1400px] mx-auto rounded-[52px] mt-[32px] ">
+			<div className="relative w-full md:h-[400px] sm:h-60 h-40 overflow-hidden max-w-[1400px] mx-auto rounded-[15px] sm:rounded-[52px] mt-[32px] ">
 				<Image
 					src={images[activeImage]}
 					alt="Imagen del banner"
@@ -23,27 +23,18 @@ export default function BannerPage() {
 					width={1400}
 					height={77}
 				/>
-				<div className="absolute w-full  flex justify-between items-center h-full p-4">
-					<button
-						className={`flex items-center justify-center w-[41px] font-bold text-lg h-[41px] rounded-full ${'bg-redPrimario text-white '}`}
-						onClick={() =>
-							setActiveImage(
-								activeImage === 0 ? images.length - 1 : activeImage - 1
-							)
-						}
-					>
-						{'<'}
-					</button>
-					<button
-						className={`flex items-center justify-center w-[41px] h-[41px] font-bold text-lg rounded-full ${'bg-redPrimario text-white '}`}
-						onClick={() =>
-							setActiveImage(
-								activeImage === images.length - 1 ? 0 : activeImage + 1
-							)
-						}
-					>
-						{'>'}
-					</button>
+				<div className="absolute w-full  flex justify-center items-end  h-full p-4 gap-2">
+					{images.map((image, index) => (
+						<div
+							key={index}
+							onClick={() => setActiveImage(index)}
+							className={`cursor-pointer w-[18px] h-[7px]   sm:w-[37px] sm:h-[14px] rounded-full transition-all  ${
+								activeImage === index
+									? 'bg-[#fff] bg-opacity-100 '
+									: 'bg-[#fff] bg-opacity-50'
+							}`}
+						></div>
+					))}
 				</div>
 			</div>
 		</div>

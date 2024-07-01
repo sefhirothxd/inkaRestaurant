@@ -11,7 +11,7 @@ export default function FooterPage() {
 							<Image
 								src={'/inkaflavorsBlanco.svg'}
 								alt="logo"
-								width={110}
+								width={150}
 								height={50}
 							/>
 						</Link>

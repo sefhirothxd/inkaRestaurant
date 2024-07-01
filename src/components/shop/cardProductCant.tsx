@@ -17,7 +17,7 @@ export default function CardProductCartCantPage({
 	plusQuantity,
 }: any) {
 	return (
-		<div className="overflow-x-auto sm:h-[400px] h-[300px] mb-10 lg:mb-0">
+		<div className="overflow-x-auto sm:h-[700px] h-[300px] mb-0 lg:mb-0">
 			{cart.length > 0 ? (
 				cart.map((product: Product) => (
 					<div

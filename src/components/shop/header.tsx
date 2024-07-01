@@ -12,7 +12,7 @@ export default function HeaderPage() {
 		<div className="bg-white w-full">
 			<div className="max-w-[1400px] mx-auto  p-2 h-[70px] flex justify-between items-center ">
 				<Link href={'/'}>
-					<Image src={'/logoInka.svg'} alt="logo" width={110} height={50} />
+					<Image src={'/logoInka.svg'} alt="logo" width={150} height={50} />
 				</Link>
 				<div className="relative font-fontPrincipal2 flex justify-center gap-3">
 					<div className="sm:flex items-center hidden">

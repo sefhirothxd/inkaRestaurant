@@ -121,7 +121,13 @@ export default function ModalProductPage() {
 							className="flex items-center mt-[48px] mb-[30px]"
 						>
 							<div className=" flex justify-center items-center  text-white rounded-full bg-[#FF0000] w-[24px] h-[24px] mr-2">
-								{'<'}
+								<Image
+									className="mr-[2px]"
+									src={'/flechaIzquierda.svg'}
+									alt="flecha izquierda"
+									width={8}
+									height={8}
+								/>
 							</div>
 							<p className="text-[20px]">Volver</p>
 						</button>

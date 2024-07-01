@@ -34,19 +34,25 @@ export default function CarritoPage() {
 	};
 
 	return (
-		<div className="bg-[#F5F5F5] max-w-[1400px] w-full mx-auto px-2">
+		<div className="bg-[#F5F5F5] max-w-[1400px] w-full mx-auto px-2 pb-10">
 			<div className="w-full">
 				<div className=" font-fontSecundario">
 					<Link href={'/'}>
 						<button className="flex items-center md:mt-[48px] mb-[30px] mt-[24px]">
 							<div className=" flex justify-center items-center  text-white rounded-full bg-[#FF0000] w-[24px] h-[24px] mr-2">
-								{'<'}
+								<Image
+									className="mr-[2px]"
+									src={'/flechaIzquierda.svg'}
+									alt="flecha izquierda"
+									width={8}
+									height={8}
+								/>
 							</div>
 							<p className="text-[20px]">Volver</p>
 						</button>
 					</Link>
 				</div>
-				<div className="flex gap-4 items-start w-full h-auto flex-wrap-reverse lg:flex-nowrap  lg:h-[510px] overflow-hidden ">
+				<div className="flex gap-4 items-start w-full h-auto flex-wrap-reverse lg:flex-nowrap lg:h-[780px] overflow-hidden ">
 					<div className="w-full max-w-[930px]">
 						<div className="flex items-center gap-2 mb-4">
 							<Image

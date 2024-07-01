@@ -44,7 +44,7 @@ export default function Home() {
 				<div className="my-[64px]">
 					<Image
 						src={'/bannerPromo.webp'}
-						className="w-full  min-h-[70px]  "
+						className="w-full  min-h-[70px]  rounded-[15px] "
 						alt="icono de promocion"
 						width={1400}
 						height={180}
