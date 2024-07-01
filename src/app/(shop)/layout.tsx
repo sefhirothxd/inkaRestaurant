@@ -1,7 +1,6 @@
-import ModalProductPage from '@/components/product/ModalProduct';
 import FooterPage from '@/components/shop/footer';
 import HeaderPage from '@/components/shop/header';
-
+import Image from 'next/image';
 export default function ShopLayout({
 	children,
 }: Readonly<{
@@ -12,7 +11,18 @@ export default function ShopLayout({
 			<HeaderPage />
 			{children}
 			<FooterPage />
-			{/* <ModalProductPage /> */}
+			<div className="fixed bottom-8 right-8 border-black border-[1px] rounded-[52px]">
+				<a href="https://wa.me/51977832615">
+					<div className="">
+						<Image
+							src={'/whatsApp.svg'}
+							alt="whatsapp"
+							width={131}
+							height={41}
+						/>
+					</div>
+				</a>
+			</div>
 		</main>
 	);
 }

@@ -1,6 +1,4 @@
 'use client';
-
-import WhatsappIcon from './icon/whatsAppBtn';
 import PhoneIcon from './icon/phone';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,14 +12,9 @@ export default function HeaderPage() {
 		<div className="bg-white w-full">
 			<div className="max-w-[1400px] mx-auto  p-2 h-[70px] flex justify-between items-center ">
 				<Link href={'/'}>
-					<Image src={'/inkaflavors.svg'} alt="logo" width={110} height={50} />
+					<Image src={'/logoInka.svg'} alt="logo" width={110} height={50} />
 				</Link>
-				<div className="flex items-center gap-2 ">
-					<a href="https://wa.me/51956769838">
-						<div className="">
-							<WhatsappIcon />
-						</div>
-					</a>
+				<div className="relative font-fontPrincipal2 flex justify-center gap-3">
 					<div className="sm:flex items-center hidden">
 						<PhoneIcon />
 						<div className="flex flex-col text-black font-bold text-sm">
@@ -29,8 +22,6 @@ export default function HeaderPage() {
 							<span className="">016060000</span>
 						</div>
 					</div>
-				</div>
-				<div className="relative font-fontPrincipal2">
 					<Link
 						href={'/carrito'}
 						className={clsx(

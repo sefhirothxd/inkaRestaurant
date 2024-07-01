@@ -15,7 +15,7 @@ export default function BannerPage() {
 			<FranjaNegraPage
 				text={'Delivery gratis todos los dias - exclusivo en web'}
 			/>
-			<div className="relative w-full md:h-[400px] sm:h-60 h-40 overflow-hidden ">
+			<div className="relative w-full md:h-[400px] sm:h-60 h-40 overflow-hidden max-w-[1400px] mx-auto rounded-[52px] mt-[32px] ">
 				<Image
 					src={images[activeImage]}
 					alt="Imagen del banner"
